@@ -7,11 +7,14 @@ un console.log mostrando el length del string recibido.
 
 Ex:
 myFunc('myString');
-*/ 
+*/
 
 /*------------------------------ Solución ------------------------------------------- */
+function str(string) {
+    console.log(string.length);
+}
 
-
+str("Hola Mundo")
 
 /*----------------------------------------------------------------------------------- */
 
@@ -29,11 +32,19 @@ myFunc(number);
 posibles casos:
 a) el número es un entero :3
 b) el número ahora es un entero con valor de (valor) ;)
-*/ 
+*/
 
 /*------------------------------ Solución ------------------------------------------- */
+function nmbr(number) {
+    if (Number.isInteger(number)) {
+        console.log("El número " + number + " es un entero");
+    } else {
+        console.log("El número " + number + " ahora es un entero con valor " + Number.parseInt(number));
+    }
 
+}
 
+nmbr(-3.99);
 
 /*----------------------------------------------------------------------------------- */
 
@@ -52,7 +63,13 @@ expected result:  4 caracteres.
 
 /*------------------------------ Solución ------------------------------------------- */
 
+var value = true;
 
+function bln(boolean) {
+    console.log(boolean.toString().length);
+}
+
+bln(value);
 
 /*----------------------------------------------------------------------------------- */
 
@@ -67,11 +84,22 @@ crear una función que reciba un object, que al ser llamada haga un console.log 
 
 Ex:
 myFunc(obj);
-*/ 
+*/
 
 /*------------------------------ Solución ------------------------------------------- */
+let user = {
+    name: "admin",
+    email: "admin@admin.com",
+    password: "admin123",
+}
 
+function obj(object) {
+    console.log("El número de propiedades es: " + Object.keys(object).length);
+    console.log("Los identificadores son: " + Object.keys(object));
+    console.log("Los valores de los identificadores son: " + Object.values(object));
+}
 
+obj(user);
 
 /*----------------------------------------------------------------------------------- */
 
@@ -87,12 +115,16 @@ var sum = new Function('a','b','c', 'return a + b + c');
 
 myFunc(sum);
 result: 3.
-*/ 
+*/
 
 /*------------------------------ Solución ------------------------------------------- */
+var myFunct = new Function('a', 'b', 'return a + b');
 
+function fcn(funct) {
+    console.log("El número de parámetros que recibe la función es: " + funct.length);
+}
 
-
+fcn(myFunct);
 /*----------------------------------------------------------------------------------- */
 
 
@@ -110,11 +142,25 @@ Ex:
 
 var arr = ['Apple', 'Banana'];
 myFunc(arr, 3, 'apple');
-*/ 
+*/
 
 /*------------------------------ Solución ------------------------------------------- */
 
+let games = ["Gris", "Bayonetta"];
 
+function arr(array, desiredLength, template) {
+    let difference = desiredLength - array.length;
+    if (difference === 1) {
+        array.push(template);
+        console.log(array);
+    } else if (difference > 1) {
+        console.log("El arreglo es menor por: " + difference);
+    } else {
+        console.log("El arreglo es mayor por: " + Math.abs(difference));
+    }
+}
+
+arr(games, 3, 'Pokemon');
 
 /*----------------------------------------------------------------------------------- */
 
@@ -129,9 +175,13 @@ myFunc();
 */
 
 /*------------------------------ Solución ------------------------------------------- */
+function date() {
+    var today = new Date();
+    console.log(today.toISOString());
+    console.log(Date.now());
+}
 
-
-
+date();
 /*----------------------------------------------------------------------------------- */
 
 
@@ -150,7 +200,12 @@ result = 9;
 
 /*------------------------------ Solución ------------------------------------------- */
 
+function exp(base, exponent) {
+    let valueabs = Math.abs(base);
+    console.log(Math.pow(valueabs, exponent));
+}
 
+exp(-1, 10);
 
 /*----------------------------------------------------------------------------------- */
 
@@ -170,7 +225,17 @@ myFunc(str, template)
 
 /*------------------------------ Solución ------------------------------------------- */
 
+var rg = new RegExp(/([A-Z])/);
 
+function regex(str, template) {
+    if (rg.test(str)) {
+        newstring = str.replace(rg, template);
+        console.log(newstring);
+        return;
+    }
+    console.log("No encuentro coincidencias");
+}
+regex("nombre", "Ja");
 
 /*----------------------------------------------------------------------------------- */
 
@@ -186,7 +251,15 @@ Ex: myFunc(number)
 */
 
 /*------------------------------ Solución ------------------------------------------- */
+//function error(number) {
+  //  if (number <= 10) {
+  //      console.log("El valor está dentro de los parámetros");
+  //      returnÑ
+  //  }
+  //  throw new Error("El valor está fuera de los parámetros");
+//}
 
+//error(15);
 
 
 /*----------------------------------------------------------------------------------- */
@@ -198,8 +271,33 @@ Usar los objetos vistos en clase y aplicarlos para solucionar un escenario que p
 entre los proyectos finales que tienen asignados.
 
 Describir el caso:
-
-Mostrar la solucíon en código:
-
-
+Crear un objeto para un usuario, que contenga su id, nombre de usuario, email, contraseña
+y los comentarios (con id) que va escribiendo en la plataforma y cada vez que comente algo,
+se añada un nuevo comentario en su objeto 
+Mostrar la solución en código:
 */
+let user2 = {
+    id_user: 0,
+    name: "",
+    email: "",
+    password: "",
+    comment0: {
+        id: 0,
+        content: "",
+    } 
+}
+
+function add_comment (commentmade, user){
+        realcomment = new String(commentmade);
+        let identify = Object.values(user).pop();
+        let idtouse = identify.id + 1;
+        ("comment" + idtouse) = {
+            id: idtouse,
+            comment: commentmade,
+        }
+        user[("comment" + idtouse)];
+        console.log(user);
+}
+
+add_comment("Me gusta tu foto", user2);
+  
