@@ -281,23 +281,13 @@ let user2 = {
     name: "",
     email: "",
     password: "",
-    comment0: {
-        id: 0,
-        content: "",
-    } 
+    comment: [[1, "sfsa"], [2, "sfasd"]]
 }
 
 function add_comment (commentmade, user){
-        realcomment = new String(commentmade);
-        let identify = Object.values(user).pop();
-        let idtouse = identify.id + 1;
-        ("comment" + idtouse) = {
-            id: idtouse,
-            comment: commentmade,
-        }
-        user[("comment" + idtouse)];
-        console.log(user);
+        let identify = user.comment;
+        let array = [(identify.length + 1), commentmade]
+        user.comment.push(array);
 }
 
 add_comment("Me gusta tu foto", user2);
-  
