@@ -14,7 +14,7 @@ function str(string) {
     console.log(string.length);
 }
 
-str("Hola Mundo")
+str("Hola Mundo");
 
 /*----------------------------------------------------------------------------------- */
 
@@ -37,14 +37,14 @@ b) el número ahora es un entero con valor de (valor) ;)
 /*------------------------------ Solución ------------------------------------------- */
 function nmbr(number) {
     if (Number.isInteger(number)) {
-        console.log("El número " + number + " es un entero");
+        console.log(`El número ${number} es un entero`);
     } else {
-        console.log("El número " + number + " ahora es un entero con valor " + Number.parseInt(number));
+        console.log(`El número ${number} ahora es un entero con valor ${Number.parseInt(number)}`);
     }
 
 }
 
-nmbr(-3.99);
+nmbr(42);
 
 /*----------------------------------------------------------------------------------- */
 
@@ -63,13 +63,11 @@ expected result:  4 caracteres.
 
 /*------------------------------ Solución ------------------------------------------- */
 
-var value = true;
-
 function bln(boolean) {
     console.log(boolean.toString().length);
 }
 
-bln(value);
+bln(true);
 
 /*----------------------------------------------------------------------------------- */
 
@@ -118,13 +116,13 @@ result: 3.
 */
 
 /*------------------------------ Solución ------------------------------------------- */
-var myFunct = new Function('a', 'b', 'return a + b');
+
 
 function fcn(funct) {
     console.log("El número de parámetros que recibe la función es: " + funct.length);
 }
 
-fcn(myFunct);
+fcn(new Function('a', 'b', 'return a + b'));
 /*----------------------------------------------------------------------------------- */
 
 
